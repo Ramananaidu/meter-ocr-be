@@ -28,12 +28,12 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-  deploy:     
-     - name: Deploy to Server 1
-       uses: easingthemes/ssh-deploy@main
-       with:
-        EC2_SSH_KEY: ${ { secrets.EC2_SSH_KEY }}
-        HOST_DNS: ${ { secrets.HOST_DNS }}
-        USERNAME: ${ { secrets.USERNAME }}
-        TARGET  : ${ { secrets.TARGET }}
+
+      - name: Deploy to Server 1
+        uses: easingthemes/ssh-deploy@main
+        with:
+         EC2_SSH_KEY: ${ { secrets.EC2_SSH_KEY }}
+         HOST_DNS: ${ { secrets.HOST_DNS }}
+         USERNAME: ${ { secrets.USERNAME }}
+         TARGET  : ${ { secrets.TARGET }}
          
