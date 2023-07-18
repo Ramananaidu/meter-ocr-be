@@ -1,9 +1,9 @@
 ---
-name: Deploy to ECR
+name: Deploy to EC2
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build:
     name: Build Image
