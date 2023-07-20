@@ -27,17 +27,17 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-  deploy:
-    needs: [build]
-    runs-on: self-hosted
-    steps:
-      - name: Deploy to EC2
-        uses: Ramananaidu/meter-ocr-be@main
-        with:
-         SSH_PRIVATE_KEY: ${ { secrets.SSH_PRIVATE_KEY }}
-         REMOTE_HOST: ${ { secrets.REMOTE_HOST }}c
-         REMOTE_USER: ${ { secrets.REMOTE_USER }}
-         TARGET  : ${ { secrets.TARGET }}
-#          script: |
-#              curl -o-   https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh    | bash
+#   deploy:
+#     needs: [build]
+#     runs-on: self-hosted
+#     steps:
+#       - name: Deploy to EC2
+#         uses: Ramananaidu/meter-ocr-be@main
+#         with:
+#          SSH_PRIVATE_KEY: ${ { secrets.SSH_PRIVATE_KEY }}
+#          REMOTE_HOST: ${ { secrets.REMOTE_HOST }}c
+#          REMOTE_USER: ${ { secrets.REMOTE_USER }}
+#          TARGET  : ${ { secrets.TARGET }}
+# #          script: |
+# #              curl -o-   https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh    | bash
          
