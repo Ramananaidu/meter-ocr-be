@@ -14,7 +14,7 @@ jobs:
     - name: Build and Push Docker Images
       run: |
         docker-compose build
-        docker-compose tag your_service_name:latest your_ecr_repository/your_service_name:latest
+        docker-compose tag src1:latest meter-ocr/scr2:latest
         # Log in to Amazon ECR if you are using a private ECR repository
         # docker login -u AWS -p $(aws ecr get-login-password --region your_region) your_ecr_repository
 
