@@ -1,23 +1,23 @@
 version: "3.8"
 
 services:
-  src1:
+  user_registration:
     image:073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration:user
-    container_name: user_registration
-
-    build: .
-    ports:
-    - "3000:3000"
     restart: always
+    build: 
+      contect: .
+    ports:
+      - 3000:3000
+    
       
-  src2:
+  meter_ocr:
     image:073449301057.dkr.ecr.us-east-1.amazonaws.com/meter_ocr:meter
-    container_name: meter_ocr
-
-    build: .
-    ports:
-    - "4000:4000"
     restart: always
+    build:
+      contect: .
+    ports:
+      - 4000:4000
+    
 
 
     
