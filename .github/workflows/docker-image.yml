@@ -9,7 +9,7 @@ jobs:
    runs-on: ubuntu-latest
    steps:
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Build and Push Docker Images
       run: |
@@ -23,14 +23,14 @@ jobs:
         # Save the Docker Compose file to a temporary location
         cp docker-compose.yml /tmp/docker-compose.yml
         # Replace "your_service_name" with the name of your service in the Docker Compose file
-        sed -i 's/your_service_name/your_ecr_repository\/your_service_name/g' /tmp/docker-compose.yml
+        sed -i 's/src1/meter-ocr\/src2/g' /tmp/docker-compose.yml
 
     - name: Copy Docker Compose File to EC2
       uses: appleboy/scp-action@master
       with:
-        host: ${{ secrets.EC2_HOST }} # EC2 instance public IP or DNS name
-        username: ${{ secrets.EC2_USERNAME }} # EC2 instance username
-        key: ${{ secrets.EC2_SSH_KEY }} # Private key to authenticate to EC2
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }} # EC2 instance public IP or DNS name
+        REMOTE_USER: ${{ secrets.REMOTE_USER }} # EC2 instance username
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} # Private key to authenticate to EC2
 
       # Copy the Docker Compose file to the EC2 instance
 #       args:
@@ -40,9 +40,9 @@ jobs:
     - name: SSH into EC2 and Deploy
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USERNAME }}
-        key: ${{ secrets.EC2_SSH_KEY }}
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+        REMOTE_USER: ${{ secrets.REMOTE_USER }}
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
 #      # Run Docker Compose up on the EC2 instance
 #       args: sudo docker-compose -f /home/ec2-user/docker-compose.yml up -d
