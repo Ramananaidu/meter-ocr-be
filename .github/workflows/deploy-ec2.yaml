@@ -59,4 +59,4 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
 
     # Run Docker Compose up on the EC2 instance
-      args: sudo docker-compose -f /home/ec2-user/docker-compose.yml up -d
+#       args: sudo docker-compose -f /home/ec2-user/docker-compose.yml up -d
