@@ -26,9 +26,10 @@ jobs:
       env: 
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: meter-ocr
+        IMAGE_TAG: latest
       run: |
-        docker-compose build
-        docker-compose tag src1:latest meter-ocr/scr2:latest
+        docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
         # Log in to Amazon ECR if you are using a private ECR repository
         # docker login -u AWS -p $(aws ecr get-login-password --region your_region) your_ecr_repository
