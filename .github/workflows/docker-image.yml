@@ -23,11 +23,16 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
       
     - name: Build and Push Docker Images
+      env: 
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: meter-ocr
       run: |
         docker-compose build
         docker-compose tag src1:latest meter-ocr/scr2:latest
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
         # Log in to Amazon ECR if you are using a private ECR repository
         # docker login -u AWS -p $(aws ecr get-login-password --region your_region) your_ecr_repository
+    
 
     - name: Create Docker Compose File
       run: |
