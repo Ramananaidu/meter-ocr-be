@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  src1:
+    container_name: user_registration
+
+    build: .
+    ports:
+    - "3000:3000"
+    restart: always
+      
+  src2:
+    container_name: meter_ocr
+
+    build: .
+    ports:
+    - "4000:4000"
+    restart: always
+
+
+    
