@@ -28,9 +28,9 @@ jobs:
         ECR_REPOSITORY: meter-ocr
         IMAGE_TAG: meter-ocr
       run: |
-        docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
-        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        
         # Log in to Amazon ECR if you are using a private ECR repository
         # docker login -u AWS -p $(aws ecr get-login-password --region your_region) your_ecr_repository
     
