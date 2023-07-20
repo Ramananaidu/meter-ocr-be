@@ -20,13 +20,22 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
       - name: Build, tag, and push image to Amazon ECR
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: meter-ocr
-          IMAGE_TAG: meter-ocr
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker-compose build
+          docker-compose tag src1:latest meter-ocr/scr2:latest
+#         env:
+#           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+#           ECR_REPOSITORY: meter-ocr
+#           IMAGE_TAG: meter-ocr
+#         run: |
+#           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+#           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+      - name: Copy Docker Compose File to EC2
+        uses: appleboy/scp-action@master
+        with:
+          REMOTE_HOST: ${{ secrets.EC2_HOST }} # EC2 instance public IP or DNS name
+          REMOTE_USER: ${{ secrets.EC2_USERNAME }} # EC2 instance username
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }} # Private key to authenticate to EC2
   deploy:
     runs-on: ubuntu-latest
     needs: [build]
