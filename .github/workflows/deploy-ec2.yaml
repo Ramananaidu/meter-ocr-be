@@ -33,6 +33,17 @@ jobs:
         host: ${{ secrets.EC2_HOST }} # EC2 instance public IP or DNS name
         username: ${{ secrets.EC2_USERNAME }} # EC2 instance username
         key: ${{ secrets.EC2_SSH_KEY }} # Private key to authenticate to EC2
+    - name: E2E Test Specific - Create ssh keys
+      run: |
+        echo #HOME
+        ls -la $HOME
+        ssh-keygen -m PEM -t rsa -b 4096 -f "$HOME/.ssh/id_rsa" -N ""
+        eval `ssh-agent -s`
+        ssh-add "$HOME/.ssh/id_rsa"
+        ssh-add -l
+        echo "SSH_PRIVATE_KEY<<EOF" >> $SSH_PRIVATE_KEY
+        cat $HOME/.ssh/id_rsa >> $SSH_PRIVATE_KEY
+        echo "EOF" >> $SSH_PRIVATE_KEY
 
        # Copy the Docker Compose file to the EC2 instance
       args:
