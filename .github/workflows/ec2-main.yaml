@@ -23,6 +23,12 @@ jobs:
         run: |
           docker-compose build
           docker-compose tag src1:latest meter-ocr/scr2:latest
+      - name: Create Docker Compose File
+        run: |
+          # Save the Docker Compose file to a temporary location
+          cp docker-compose.yml /tmp/docker-compose.yml
+          # Replace "your_service_name" with the name of your service in the Docker Compose file
+          sed -i 's/src1/meter-ocr\/src2/g' /tmp/docker-compose.yml
 #         env:
 #           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
 #           ECR_REPOSITORY: meter-ocr
