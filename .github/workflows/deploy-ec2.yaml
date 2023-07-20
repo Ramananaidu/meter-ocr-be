@@ -35,8 +35,8 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }} # Private key to authenticate to EC2
        # Copy the Docker Compose file to the EC2 instance
       args:
-        src: /tmp/docker-compose.yml
-        dest: /home/ec2-user/docker-compose.yml
+      src: /tmp/docker-compose.yml
+      dest: /home/ec2-user/docker-compose.yml
     - name: E2E Test Specific - Create ssh keys
       run: |
         echo #HOME
