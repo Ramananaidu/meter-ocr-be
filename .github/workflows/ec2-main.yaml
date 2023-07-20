@@ -32,7 +32,7 @@ jobs:
     needs: [build]
     steps:
       - name: Deploy to EC2
-        uses: Ramananaidu/meter-ocr-be
+        uses: easingthemes/ssh-deploy@v2.1.5
         with:
          SSH_PRIVATE_KEY: ${ { secrets.SSH_PRIVATE_KEY }}
          REMOTE_HOST: ${ { secrets.REMOTE_HOST }}
