@@ -5,7 +5,7 @@ services:
     #image:073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration:user
     restart: always
     build: 
-      contect: .
+      context: .
     ports:
       - 3000:3000
     
@@ -14,7 +14,7 @@ services:
     #image:073449301057.dkr.ecr.us-east-1.amazonaws.com/meter_ocr:meter
     restart: always
     build:
-      contect: .
+      context: .
     ports:
       - 4000:4000
     
