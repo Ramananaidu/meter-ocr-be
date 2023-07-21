@@ -26,7 +26,7 @@ jobs:
       env: 
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
       #run: docker-compose build --no-cache
-      run: docker-compose tag user_registration:user 073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration:latest
+      run: docker-compose build --no-cache
     - name: Push Images
       run: docker-compose push 073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration:latest    
         
