@@ -2,21 +2,23 @@ version: "3.8"
 
 services:
   user_registration:
-    #image:${DOCKER_REGISTRY}/user_registration:user
     restart: always
-    build: 
+    build:
+      image: 073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration
       context: .
     ports:
       - 3000:3000
-    
+    version_tag:
+      extends: build
+      image: 073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration:latest
       
-  meter_ocr:
-    #image:${DOCKER_REGISTRY}/meter_ocr:meter
-    restart: always
-    build:
-      context: .
-    ports:
-      - 4000:4000
+  # meter_ocr:
+  #   #image:${DOCKER_REGISTRY}/meter_ocr:meter
+  #   restart: always
+  #   build:
+  #     context: .
+  #   ports:
+  #     - 4000:4000
     
 
 
