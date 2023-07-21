@@ -25,9 +25,10 @@ jobs:
     - name: Build Docker Images
       env: 
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
-      run: docker-compose build --no-cache
+      #run: docker-compose build --no-cache
+      run: docker-compose tag user_registration:user 073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration:latest
     - name: Push Images
-      run: docker-compose push       
+      run: docker-compose push 073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration:latest    
         
         # Log in to Amazon ECR if you are using a private ECR repository
         # docker login -u AWS -p $(aws ecr get-login-password --region your_region) your_ecr_repository
