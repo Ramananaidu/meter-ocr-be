@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   user_registration:
-    image:${DOCKER_REGISTRY}/user_registration:user
+    #image:${DOCKER_REGISTRY}/user_registration:user
     restart: always
     build: 
       context: .
@@ -11,7 +11,7 @@ services:
     
       
   meter_ocr:
-    image:${DOCKER_REGISTRY}/meter_ocr:meter
+    #image:${DOCKER_REGISTRY}/meter_ocr:meter
     restart: always
     build:
       context: .
