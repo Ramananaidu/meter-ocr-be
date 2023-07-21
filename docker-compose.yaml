@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   user_registration:
-    image:073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration:user
+    #image:073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration:user
     restart: always
     build: 
       contect: .
@@ -11,7 +11,7 @@ services:
     
       
   meter_ocr:
-    image:073449301057.dkr.ecr.us-east-1.amazonaws.com/meter_ocr:meter
+    #image:073449301057.dkr.ecr.us-east-1.amazonaws.com/meter_ocr:meter
     restart: always
     build:
       contect: .
