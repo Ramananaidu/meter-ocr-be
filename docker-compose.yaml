@@ -7,7 +7,7 @@ services:
       #image: 073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration
       context: .
     #ports:
-      - 3000:3000
+      # - 3000:3000
     # version_tag:
     #   extends: build
     #   image: 073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration:latest
