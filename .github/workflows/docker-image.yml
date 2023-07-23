@@ -30,7 +30,7 @@ jobs:
     - name: Push Images
       run: docker tag user_registration/meter_ocr:latest
 #     - name: Push Images
-#       run: docker-compose tag user_registration/meter_ocr:latest
+#       run: docker-compose tag user_registration:latest meter_ocr/user_registration:latest
       
         
         # Log in to Amazon ECR if you are using a private ECR repository
