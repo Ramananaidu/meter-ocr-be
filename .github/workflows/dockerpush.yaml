@@ -27,8 +27,8 @@ jobs:
 #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}	      
 #         account_id: ${{ secrets.AWS_ACCOUNT_ID }}
 #        
-        aws-region: ${{ secrets.AWS_REGION }}
-        tags: latest
+#         aws-region: ${{ secrets.AWS_REGION }}
+#         tags: latest
     - name: Build Docker Images
       run: docker-compose build
     - name: Push Images
