@@ -26,7 +26,7 @@ jobs:
       env: 
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
       #run: docker-compose build --no-cache
-      run: docker-compose build –t meter_ocr:latest .
+      run: docker-compose build
     - name: Push Images
       run: docker tag user_registration/meter_ocr:latest
 #     - name: Push Images
