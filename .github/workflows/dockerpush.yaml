@@ -17,16 +17,16 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
         
     - name: Login to Amazon ECR
-      id: login-ecr
+      id: login-ecr 
       run: |
         echo ${{secret.ECR_ACCESS_TOKEN }} | docker login - u AWS --passsord-stdin 073449301057.dkr.ecr.us-east-1.amazonaws.com/meter_ocr
+#       uses: aws-actions/amazon-ecr-login@v1
       
-      uses: aws-actions/amazon-ecr-login@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}	      
-        account_id: ${{ secrets.AWS_ACCOUNT_ID }}
-#         repo: docker/meter_ocr
+#       with:
+#         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}	      
+#         account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+#        
         aws-region: ${{ secrets.AWS_REGION }}
         tags: latest
     - name: Build Docker Images
