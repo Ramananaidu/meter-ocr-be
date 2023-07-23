@@ -28,7 +28,10 @@ jobs:
       #run: docker-compose build --no-cache
       run: docker-compose build --no-cache
     - name: Push Images
-      run: docker-compose push user_registration/meter_ocr:latest    
+      run: docker-compose tag user_registration/meter_ocr:latest
+    - name: Push Images
+      run: docker-compose tag user_registration/meter_ocr:latest
+      
         
         # Log in to Amazon ECR if you are using a private ECR repository
         # docker login -u AWS -p $(aws ecr get-login-password --region your_region) your_ecr_repository
