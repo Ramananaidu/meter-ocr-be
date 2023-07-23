@@ -28,7 +28,7 @@ jobs:
       #run: docker-compose build --no-cache
       run: docker-compose build
     - name: Push Images
-      run: docker-compose tag user_registration:latest meter_ocr/user_registration:latest
+      run: docker-compose push user_registration:latest meter_ocr/user_registration:latest
 #     - name: Push Images
 #       run: docker-compose tag user_registration:latest meter_ocr/user_registration:latest
       
