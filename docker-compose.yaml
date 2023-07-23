@@ -4,7 +4,7 @@ services:
   user_registration:
     restart: always
     build:
-      image: meter_ocr:latest
+    image: meter_ocr:latest
       context: .
       # cache_from:
       #   - meter_ocr:latest
