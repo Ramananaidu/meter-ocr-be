@@ -19,7 +19,7 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr 
       run: |
-        echo ${{ secrets.ECR_ACCESS_TOKEN }} | docker login --username AWS --password-stdin {{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
+        echo ${{ secrets.ECR_ACCESS_TOKEN }} | aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 073449301057.dkr.ecr.us-east-1.amazonaws.com
 #       uses: aws-actions/amazon-ecr-login@v1
       
 #       with:
