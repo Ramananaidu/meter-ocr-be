@@ -24,7 +24,7 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}	      
         account_id: ${{ secrets.AWS_ACCOUNT_ID }}
-        repo: docker/meter_ocr
+#         repo: docker/meter_ocr
         aws-region: ${{ secrets.AWS_REGION }}
         tags: latest
     - name: Build Docker Images
