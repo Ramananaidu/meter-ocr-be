@@ -3,6 +3,7 @@ version: "3"
 services:
   user_registration:
     restart: always
+    image: meter_ocr:latest
     build:
       #image: meter_ocr:latest
       context: .
