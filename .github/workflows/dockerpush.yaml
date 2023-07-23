@@ -19,8 +19,8 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
-    - name: Environment
-      run: touch .env
+#     - name: Environment
+#       run: touch .env
     - name: Build Docker Images
       run: docker-compose build
     - name: Push Images
