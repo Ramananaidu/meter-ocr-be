@@ -19,6 +19,9 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr
       env:
+        registry: ${{ secrets.AWS_ACCOUNT_NUMBER }}.dkr.ecr.us-east-1.amazonaws.com
+        username: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        password: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: meter_ocr
       uses: aws-actions/amazon-ecr-login@v1
