@@ -28,7 +28,7 @@ jobs:
       #run: docker-compose build --no-cache
       run: docker-compose build --no-cache
     - name: Push Images
-      run: docker-compose push 073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration:latest    
+      run: docker-compose push meter_ocr/meter_ocr:latest    
         
         # Log in to Amazon ECR if you are using a private ECR repository
         # docker login -u AWS -p $(aws ecr get-login-password --region your_region) your_ecr_repository
