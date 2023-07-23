@@ -6,6 +6,8 @@ services:
     build:
       #image: 073449301057.dkr.ecr.us-east-1.amazonaws.com/user_registration
       context: .
+      cache_from:
+        - meter_ocr:latest
     #ports:
       # - 3000:3000
     # version_tag:
