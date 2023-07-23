@@ -32,7 +32,7 @@ jobs:
     - name: Build Docker Images
       run: docker-compose build
     - name: Push Images
-      run: docker-compose push 
+      run: docker-compose push ${{ secrets.AWS_ACCOUNT_NUMBER }}.dkr.ecr.us-east-1.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:latest
       env:
         registry: ${{ secrets.AWS_ACCOUNT_NUMBER }}.dkr.ecr.us-east-1.amazonaws.com
         username: ${{ secrets.AWS_ACCESS_KEY_ID }}
