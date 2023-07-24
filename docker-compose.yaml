@@ -3,7 +3,7 @@ version: "3"
 services:
   user_registration:
     restart: always
-    image: meter_ocr:latest
+    image: 073449301057.dkr.ecr.us-east-1.amazonaws.com/ai-spot-billing:latest
     build:
       #image: meter_ocr:latest
       context: .
