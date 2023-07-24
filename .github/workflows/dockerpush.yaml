@@ -20,15 +20,6 @@ jobs:
       id: login-ecr 
       run: |
         echo ${{ secrets.ECR_ACCESS_TOKEN }} | aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 073449301057.dkr.ecr.us-east-1.amazonaws.com
-#       uses: aws-actions/amazon-ecr-login@v1
-      
-#       with:
-#         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}	      
-#         account_id: ${{ secrets.AWS_ACCOUNT_ID }}
-#        
-#         aws-region: ${{ secrets.AWS_REGION }}
-#         tags: latest
     - name: Build Docker Images
       run: docker-compose build
     - name: Push Images
